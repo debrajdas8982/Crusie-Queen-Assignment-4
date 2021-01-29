@@ -62,8 +62,8 @@
                     <input id="firstclass-ticket-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <button id="ticket-price-increase" class="btn btn-dafault fs-5 fw-bold">+</button>
-                    <button id="ticket-price-decrease" class="btn btn-dafault fs-5 fw-bolder">-</button>
+                    <button onclick="handelTicketChange('firstclass-ticket', true)" class="btn btn-dafault fs-5 fw-bold">+</button>
+                    <button onclick="handelTicketChange('firstclass-ticket' , false)" class="btn btn-dafault fs-5 fw-bolder">-</button>
                  
                 </div>
             </div>
@@ -74,8 +74,8 @@
                     <input id="economyclass-ticket-count" class="inp-style inp-width" type="number" name="" value="1">
                 </div>
                 <div class="plus-minus-btn">
-                    <button id="economy-ticket-price-increase" class="btn btn-dafault fs-5 fw-bold">+</button>
-                    <button id="economy-ticket-price-decrease" class="btn btn-dafault fs-5 fw-bold">-</button>
+                    <button onclick="handelTicketChange('economyclass-ticket' , true)" class="btn btn-dafault fs-5 fw-bold">+</button>
+                    <button onclick="handelTicketChange('economyclass-ticket' , false)"  class="btn btn-dafault fs-5 fw-bold">-</button>
                  
                 </div>
             </div>
@@ -113,7 +113,38 @@
 
     <script>
 
-           document.getElementById("ticket-price-increase").addEventListener('click' , function(){
+
+function handelTicketChange(ticket , isPriceIncrease){
+
+const choiceOfClassTicketInput = document.getElementById( ticket + "-count");
+const ticketCount = parseInt(choiceOfClassTicketInput.value);
+let ticketNewCount = ticketCount;
+if(isPriceIncrease == true){
+    ticketNewCount = ticketCount + 1;
+}
+if(isPriceIncrease == false && ticketCount > 0 ) {
+    ticketNewCount = ticketCount - 1 ;
+}
+choiceOfClassTicketInput.value = ticketNewCount;
+let ticketTotalPrice = 0;
+ if (ticket == 'firstclass-ticket'){
+    ticketTotalPrice = ticketNewCount * 150;
+ }
+ if(ticket == 'economyclass-ticket'){
+    ticketTotalPrice = ticketNewCount * 100;
+ }
+document.getElementById( ticket + '-price').innerText = ticketTotalPrice;
+}
+
+function calculateTotalPrice(){
+
+    
+}
+
+
+
+
+     /*      document.getElementById("ticket-price-increase").addEventListener('click' , function(){
 
             const firstClassTicketCount = document.getElementById("firstclass-ticket-count");
             const ticketCount = parseInt(firstClassTicketCount.value);
@@ -133,9 +164,68 @@
         const firstClassTotalPrice = ticketNewCount * 150;
         document.getElementById('firstclass-ticket-price').innerText = firstClassTotalPrice;
 
-        }); 
+        }); */
 
-          document.getElementById("economy-ticket-price-decrease").addEventListener('click' , function(){
+
+/*
+function handelFirstTicketChange(isPriceIncrease){
+
+const firstClassTicketCount = document.getElementById("firstclass-ticket-count");
+const ticketCount = parseInt(firstClassTicketCount.value);
+let ticketNewCount = ticketCount;
+if(isPriceIncrease == true){
+    ticketNewCount = ticketCount + 1;
+}
+if(isPriceIncrease == false && ticketCount > 0 ) {
+    ticketNewCount = ticketCount - 1 ;
+}
+//const ticketNewCount = ticketCount -1;
+firstClassTicketCount.value = ticketNewCount;
+const firstClassTotalPrice = ticketNewCount * 150;
+document.getElementById('firstclass-ticket-price').innerText = firstClassTotalPrice;
+}
+
+function handelEconomyTicketChange(isPriceIncrease){
+
+const economyClassTicketCount = document.getElementById("economyclass-ticket-count");
+const ticketCount = parseInt(economyClassTicketCount.value);
+let ticketNewCount = ticketCount;
+if(isPriceIncrease == true){
+    ticketNewCount = ticketCount + 1;
+}
+if(isPriceIncrease == false && ticketCount > 0 ) {
+    ticketNewCount = ticketCount - 1 ;
+}
+//const ticketNewCount = ticketCount -1;
+economyClassTicketCount.value = ticketNewCount;
+const economyClassTotalPrice = ticketNewCount * 100;
+document.getElementById('economyclass-ticket-price').innerText = economyClassTotalPrice;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*    document.getElementById("economy-ticket-price-decrease").addEventListener('click' , function(){
 
         const firstClassTicketCount = document.getElementById("economyclass-ticket-count");
         const ticketCount = parseInt(firstClassTicketCount.value);
@@ -155,7 +245,7 @@ firstClassTicketCount.value = ticketNewCount;
 const firstClassTotalPrice = ticketNewCount * 100;
 document.getElementById('economyclass-ticket-price').innerText = firstClassTotalPrice;
 
-}); 
+}); */
 
     </script>
 
