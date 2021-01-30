@@ -62,7 +62,7 @@ nav ul li a:hover, a.active{
     padding: 10px;
     border-radius: 5px;
     float: right;
-    width: 65%;
+    width: 75%;
     margin-left: 180px;
 }
 .booking-form h3{
@@ -110,16 +110,28 @@ nav ul li a:hover, a.active{
     gap: 10px;
 }
 .btn-style{
-    display: block;
+    
     width: 100%;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     color: #fff;
     font-weight: 500;
-    background-color:  #E33741;
+    background-color:  #9aa87a;
 }
 .amount{
     display: flex;
     justify-content: space-between;
 }
+
+#confirm-ticket{
+    display: none;
+    background-color:chocolate;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    float: right;
+    width: 50%;
+    
+}
+

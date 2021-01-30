@@ -35,11 +35,11 @@
             <h1>Cruise Queen</h1>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                 industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                scrambled it to make a type specimen book./p>
+                scrambled it to make a type specimen book.</p>
         </div>
 
 
-        <div class="booking-form">
+        <div id="booking" class="booking-form">
             <h3>Book Ocean Time</h3>
             <div class="input-group">
                 <label for="">Flying From</label>
@@ -62,21 +62,20 @@
             <div class="input-group f-class">
                 <div>
                     <label for="">First Class ($ <span id="firstclass-ticket-price">150</span> )</label>
-                    <input id="firstclass-ticket-count" class="inp-style inp-width" type="number" name="" value="0">
+                    <input id="firstclass-ticket-count" class="inp-style inp-width" type="" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <button onclick="handelTicketChange('firstclass-ticket', true)"
                         class="btn btn-dafault fs-5 fw-bold">+</button>
                     <button onclick="handelTicketChange('firstclass-ticket' , false)"
                         class="btn btn-dafault fs-5 fw-bolder">-</button>
-
                 </div>
             </div>
 
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($ <span id="economyclass-ticket-price">100</span>)</label>
-                    <input id="economyclass-ticket-count" class="inp-style inp-width" type="number" name="" value="0">
+                    <input id="economyclass-ticket-count" class="inp-style inp-width" type="" name="" value="0">
                 </div>
                 <div class="plus-minus-btn">
                     <button onclick="handelTicketChange('economyclass-ticket' , true)"
@@ -114,10 +113,14 @@
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button id="booking-ticket" class="btn-style">Book Now</button>
         </div>
     </main>
-
+    <div id="confirm-ticket">
+        <h3>Your ticket from Dhaka to New York has been confirmed.</h3>
+        <h4>Have a safe journey. </h4>
+        <button class="btn btn-success">Pay by card.</button>
+    </div>
     <script>
 
         //Calculate number of tickets and their total price
@@ -146,7 +149,7 @@
         }
 
         // Calculate total ticket price including tax and grand total
-        
+
         function calculateTotalPrice() {
 
             const firstClassTicketCount = getInputPrice('firstclass-ticket');
@@ -168,6 +171,14 @@
             const ticketCount = parseInt(ticketInput.value);
             return ticketCount;
         }
+
+        const bookingBtn = document.getElementById('booking-ticket');
+        bookingBtn.addEventListener('click' , function(){
+            const bookingForm = document.getElementById('booking');
+            bookingForm.style.display = 'none';
+            const confirmTicket = document.getElementById('confirm-ticket');
+            confirmTicket.style.display = 'block';
+        });
     </script>
 </body>
 
